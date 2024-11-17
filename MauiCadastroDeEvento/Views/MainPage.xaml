@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCadastroDeEvento.Views.MainPage"
+             Title="MainPage"
+             NavigationPage.HasNavigationBar="False"
+             Background="#212121">
+    
+    
+    
+    
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Background="#212121">
+
+        <Label Text="Cadastro de Evento"
+               HorizontalOptions="Center"
+               FontSize="40"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"
+               Margin="-10"/>
+        <BoxView HeightRequest="2"
+                 WidthRequest="375"
+                 Color="{StaticResource Primary}"
+                 Margin="10"/>
+
+        <Frame Padding="10" Margin="10" BackgroundColor="#212121">
+
+            <VerticalStackLayout Spacing="10">
+
+
+                <Label Text="Nome do Evento"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+                <Entry Placeholder="Brazilian Game Show" x:Name="etr_nome"/>
+
+                <BoxView HeightRequest="2"
+                         HorizontalOptions="FillAndExpand"
+                         Color="Gray"
+                         Margin="0,3"/>
+
+                <Label Text="Duração do Evento"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+                
+                <Grid RowDefinitions="Auto, Auto" ColumnDefinitions="*, *"  HorizontalOptions="Center" ColumnSpacing="30" RowSpacing="10">
+
+                    <Label Text="Data De Inicio" Grid.Row="0" Grid.Column="0" VerticalOptions="Center"/>
+                    <DatePicker Grid.Column="1" Grid.Row="0" Format="dd/mm/yyyy" x:Name="dtp_inicio" DateSelected="dtp_inicio_DateSelected"/>
+                    <Label Text="Data Do Término" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+                    <DatePicker Grid.Column="1" Grid.Row="1" Format="dd/mm/yyyy" x:Name="dtp_fim"/>
+
+                </Grid>
+
+                <BoxView HeightRequest="2"
+                         HorizontalOptions="FillAndExpand"
+                         Color="Gray"
+                         Margin="0,3"/>
+
+                <Label Text="Número de Participantes"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+
+                <Label Text="{Binding Value}" HorizontalOptions="Center" Margin="0" BindingContext="{x:Reference sld_participantes}"/>
+                <Slider Minimum="0" Maximum="150" x:Name="sld_participantes" ValueChanged="sld_participantes_ValueChanged" MaximumTrackColor="{StaticResource Primary}" MinimumTrackColor="{StaticResource PrimaryDark}"/>
+
+                <BoxView HeightRequest="2" Margin="0,3" Color="Gray"/>
+
+                <Label Text="Local do Evento"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+                <Picker x:Name="pck_local" Title="Selecione o Local" ItemDisplayBinding="{Binding descricao}"/>
+
+
+                <BoxView HeightRequest="2" Margin="0,3" Color="Gray"/>
+
+                <Label Text="Custo por Participante"
+                       HorizontalOptions="CenterAndExpand"
+                       FontAttributes="Bold"/>
+                <Entry Placeholder="R$ 9000" x:Name="etr_custo"/>
+
+
+                <Button Text="Avançar" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="Button_Clicked"/>
+
+
+            </VerticalStackLayout>
+            
+        </Frame>
+
+        
+
+
+
+
+
+
+    </VerticalStackLayout>
+    
+    
+    
+</ContentPage>

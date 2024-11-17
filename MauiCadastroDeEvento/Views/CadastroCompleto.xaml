@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiCadastroDeEvento.Views.CadastroCompleto"
+             Title="CadastroCompleto"
+             NavigationPage.HasNavigationBar="False">
+    <VerticalStackLayout VerticalOptions="CenterAndExpand" Spacing="10">
+
+        <Label Text="Cadastro Concluído"
+               HorizontalOptions="Center"
+               FontSize="40"
+               FontAttributes="Bold"
+               TextColor="{StaticResource Primary}"
+               Margin="-10"/>
+        <BoxView HeightRequest="2"
+                 WidthRequest="375"
+                 Color="{StaticResource Primary}"
+                 Margin="10"/>
+
+        <Frame BackgroundColor="#212121" Margin="10" Padding="10">
+
+            <VerticalStackLayout>
+
+                <Label Text="Dados Cadastrados" HorizontalOptions="Center" FontAttributes="Bold"/>
+
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto, Auto" ColumnDefinitions="*, *" HorizontalOptions="CenterAndExpand" Padding="10" ColumnSpacing="20" RowSpacing="10">
+
+                    <Label Text="Nome:" Grid.Row="0" Grid.Column="0"/>
+                    <Label Text="{Binding nome}" Grid.Row="0" Grid.Column="1"/>
+
+                    <Label Text="Data Inicio:" Grid.Row="1" Grid.Column="0"/>
+                    <Label Text="{Binding dataInicio, StringFormat='{0:dd/MM/yyyy}'}" Grid.Row="1" Grid.Column="1"/>
+
+                    <Label Text="Data Fim:" Grid.Row="2" Grid.Column="0"/>
+                    <Label Text="{Binding dataFim, StringFormat='{0:dd/MM/yyyy}'}" Grid.Row="2" Grid.Column="1"/>
+
+                    <Label Text="Duração:" Grid.Row="3" Grid.Column="0"/>
+                    <Label Text="0 dias" Grid.Row="3" Grid.Column="1" x:Name="str_duracao"/>
+
+                    <Label Text="Local:" Grid.Row="4" Grid.Column="0"/>
+                    <Label Text="{Binding local.descricao}" Grid.Row="4" Grid.Column="1"/>
+
+                    <Label Text="Endereço:" Grid.Row="5" Grid.Column="0"/>
+                    <Label Text="{Binding local.endereco}" Grid.Row="5" Grid.Column="1"/>
+
+                    <Label Text="Quant. Participantes:" Grid.Row="6" Grid.Column="0"/>
+                    <Label Text="{Binding quantParticipantes}" Grid.Row="6" Grid.Column="1"/>
+
+                    <Label Text="Custo p/ Participante:" Grid.Row="7" Grid.Column="0"/>
+                    <Label Text="{Binding custoParticipante}" Grid.Row="7" Grid.Column="1"/>
+
+                    <Label Text="Custo Total:" Grid.Row="8" Grid.Column="0"/>
+                    <Label Text="0" Grid.Row="8" Grid.Column="1" x:Name="str_custototal"/>
+
+
+
+                </Grid>
+
+                <Button Text="Voltar" BackgroundColor="{StaticResource Primary}" TextColor="White" Clicked="Button_Clicked"/>
+
+
+            </VerticalStackLayout>
+            
+            
+        </Frame>
+
+
+    </VerticalStackLayout>
+</ContentPage>
